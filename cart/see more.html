@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            text-align: center;
+          position: relative;
+          left: 450px;
+          /* border: 2px solid black; */
+         
+        
+        }
+        li,img{
+            position: relative;
+           /* border:2px solid black; */
+           left: 350px;
+            /* border: 2px solid black; */
+            width: 350px;
+        }
+        button{
+          position: relative;
+          left: 350px;
+          width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <img src="" alt="">
+   
+   
+
+    <script>
+      
+        var a=localStorage.getItem("see more")
+        let aa=JSON.parse(a)
+        let img=document.getElementsByTagName("img")
+        img[0].setAttribute("src",aa.image)
+        img[0].style.width="200px"
+       
+       
+      
+     var c=[]
+       c.push(aa)
+       c.map((val)=>{
+        let f=document.createElement("li")
+        f.innerText=val.price
+        document.body.appendChild(f)
+     })
+    
+       c.map((val)=>{
+        let f=document.createElement("li")
+        f.innerText=val.description
+    
+        document.body.appendChild(f)
+     })
+
+    
+       c.map((val)=>{
+        let f=document.createElement("li")
+        f.innerText=val.rating.rate
+    
+        document.body.appendChild(f)
+     })
+    
+       c.map((val)=>{
+        let f=document.createElement("li")
+        f.innerText=val.rating.count
+    
+        document.body.appendChild(f)
+     })
+     
+       c.map((val)=>{
+        let f=document.createElement("li")
+        f.innerText="DISCOUNT% UPTO 20%"
+    
+        document.body.appendChild(f)
+     })
+
+    
+       
+      
+    </script>
+</body>
+</html>

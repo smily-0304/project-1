@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+<h1></h1>
+  <script>
+   var a = localStorage.getItem("item");
+    console.log(a);
+
+    var b = JSON.parse(a);
+    console.log(b);
+
+    for(i=0;i<b.length;i++){
+
+    let img1 = document.createElement("img");
+    img1.setAttribute("src", b[i].image);
+    img1.style.width = "250px";
+    document.body.appendChild(img1)
+
+    let title = document.createElement("h1");
+    title.innerText = b[i].title;
+    document.body.appendChild(title)
+
+    var p2=document.createElement("p")
+    p2.innerText="Price :" +b[i].price
+
+    if(b[i].quantity){
+      p2.innerHTML += "<br> Quantity" + b[i].quantity 
+    }
+    document.body.appendChild(p2)
+
+
+
+    let bta = document.createElement("button");
+    bta.innerHTML="Remove item"
+    bta.addEventListener("click", function()  {
+      b.splice(i,1)
+      localStorage.setItem("item", JSON.stringify(b));
+
+      img1.remove();
+      p2.remove();
+      title.remove();
+      price.remove();
+    });
+    p2.appendChild(bta)
+  }
+  
+
+
+</script>
+</body>
+</html>
